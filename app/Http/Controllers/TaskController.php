@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
     public function index()
-    {   
+    {
         $tasks = auth()->user()->tasks()->get();
         return view('tasks.index', compact('tasks'));
     }
@@ -17,7 +18,9 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
         ]);
-        auth()->user()->tasks()->create($request->all());
+        auth()->user()->tasks()->create([
+            'title' => $request->title,
+        ]);
         return redirect()->route('tasks.index');
     }
 
