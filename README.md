@@ -1,66 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://github.com/Jesuiz/Todoit" target="_blank"><img src="https://raw.githubusercontent.com/Jesuiz/Todoit/refs/heads/master/public/logo.webp" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Aplicación de Tareas To Do It
 
-## About Laravel
+Esta es una aplicación de gestión de tareas construida con Laravel. Permite a los usuarios crear, ver, actualizar y eliminar tareas, así como filtrarlas por varios criterios.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Características
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Autenticación de usuarios
+- Creación, lectura, actualización y eliminación de tareas
+- Filtrado de tareas por título, estado de completado y fecha de creación
+- Interfaz responsiva
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requisitos previos
 
-## Learning Laravel
+Asegúrate de tener instalado lo siguiente en tu máquina:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP >= 7.3
+- Composer
+- MySQL o cualquier base de datos compatible con Laravel
+- Node.js y npm (para compilar assets)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Configuración
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clona el repositorio:
+git clone https://github.com/Jesuiz/Todoit.git
+cd nombre-de-tu-proyecto
 
-## Laravel Sponsors
+2. Instala las dependencias de PHP:
+composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. Instala las dependencias de JavaScript y compila los assets:
+npm install
+npm run dev
 
-### Premium Partners
+4. Copia el archivo de entorno y configúralo:
+cp .env.example .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+5. Edita el archivo `.env` y configura tu base de datos y otras variables de entorno necesarias.
 
-## Contributing
+6. Genera una clave de aplicación:
+php artisan key:generate
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Ejecuta las migraciones:
+php artisan migrate
 
-## Code of Conduct
+## Ejecución del proyecto
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. Inicia el servidor de desarrollo de Laravel:
+php artisan serve
 
-## Security Vulnerabilities
+2. Abre tu navegador y visita `http://localhost:8000`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Uso
 
-## License
+1. Regístrate para crear una nueva cuenta de usuario.
+2. Inicia sesión con tus credenciales.
+3. Usa el formulario en la página principal para crear nuevas tareas.
+4. Utiliza los filtros en la parte superior de la lista de tareas para filtrar las tareas existentes.
+5. Marca las tareas como completadas o elimínalas usando los botones correspondientes.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Pruebas
+
+Para ejecutar las pruebas, usa el siguiente comando:
+php artisan test
+
+## Contribución
+
+Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios mayores antes de crear un pull request.
+
+## Licencia
+
+Este proyecto está licenciado bajo [tu licencia elegida]. Ver el archivo LICENSE para más detalles.
