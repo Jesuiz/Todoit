@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
@@ -14,18 +15,13 @@ class TaskController extends Controller
     {
         $filters = $request->only(['title', 'completed', 'created_at']);
         
-        // Asegurarse de que 'completed' sea un booleano
         if (isset($filters['completed'])) {
             $filters['completed'] = $request->boolean('completed');
         }
 
-        $tasks = Task::filter($filters)
-                    ->orderBy('created_at', 'desc')
-                    ->get();
-
-        // Log para depuración
-        Log::info('Filtros aplicados:', $filters);
-        Log::info('Número de tareas encontradas: ' . $tasks->count());
+        $tasks = Auth::user()->tasks()->filter($filters)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('tasks.index', compact('tasks'));
     }
