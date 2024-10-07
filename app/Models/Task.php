@@ -19,4 +19,15 @@ class Task extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['title'] ?? null, function ($query, $title) {
+            $query->where('title', 'like', '%' . $title . '%');
+        })->when(isset($filters['completed']), function ($query) use ($filters) {
+            $query->where('completed', $filters['completed']);
+        })->when($filters['created_at'] ?? null, function ($query, $date) {
+            $query->whereDate('created_at', $date);
+        });
+    }
 }

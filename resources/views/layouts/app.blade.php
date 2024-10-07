@@ -34,5 +34,21 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script>
+            function applyFilter() {
+                const form = document.getElementById('filter-form');
+                const formData = new FormData(form);
+                const queryString = new URLSearchParams(formData).toString();
+
+                fetch(`{{ route('tasks.index') }}?${queryString}`)
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('task-list').innerHTML = html;
+                    })
+                    .catch(error => console.error('Error al filtrar las tareas:', error));
+            }
+        </script>
+
     </body>
 </html>

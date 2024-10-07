@@ -21,7 +21,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::middleware('auth')->group(function () {
-    
+
     // Rutas CRUD para tareas
     Route::resource('tasks', TaskController::class);
 
